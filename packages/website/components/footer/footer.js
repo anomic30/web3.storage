@@ -1,9 +1,9 @@
 // ===================================================================== Imports
 import { useCallback } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import clsx from 'clsx';
 
+import Link from '../link/link';
 import SiteLogo from '../../assets/icons/w3storage-logo.js';
 import Button from '../button/button';
 import Squiggle from '../../assets/illustrations/squiggle.js';
@@ -82,15 +82,8 @@ export default function Footer({ isProductApp }) {
             <div className="footer_resources">
               <div className="label">{resources.heading}</div>
               {resources.items.map(item => (
-                <Link href={item.url} key={item.text} passHref>
-                  <a
-                    href="replace"
-                    className="footer-link"
-                    onClick={onLinkClick}
-                    onKeyPress={e => handleKeySelect(e, item.url)}
-                  >
-                    {item.text}
-                  </a>
+                <Link href={item.url} key={item.text} className="footer-link" onClick={onLinkClick}>
+                  {item.text}
                 </Link>
               ))}
             </div>
@@ -100,15 +93,8 @@ export default function Footer({ isProductApp }) {
             <div className="footer_get-started">
               <div className="label">{getStarted.heading}</div>
               {getStarted.items.map(item => (
-                <Link href={item.url} key={item.text} passHref>
-                  <a
-                    href="replace"
-                    className="footer-link"
-                    onClick={onLinkClick}
-                    onKeyPress={e => handleKeySelect(e, item.url)}
-                  >
-                    {item.text}
-                  </a>
+                <Link className="footer-link" href={item.url} key={item.text} onClick={onLinkClick}>
+                  {item.text}
                 </Link>
               ))}
             </div>
